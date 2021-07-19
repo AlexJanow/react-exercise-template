@@ -6,6 +6,11 @@ function UserList() {
   const [isLoading, setIsLoading] = useState(false);
   const [isError, setIsError] = useState(false);
   const [amount, setAmount] = useState("10");
+  const [gender, setGender] = useState("all");
+
+  // useEffect(() => {
+  //   setGender;
+  // });
 
   useEffect(() => {
     const temp = localStorage.getItem("characters");
@@ -53,10 +58,20 @@ function UserList() {
           value={amount}
           name="maxResults"
         />
+      </div>{" "}
+      <div>
+        <label for="genderChoice">Gender:</label>
+        <select onChange={(e) => setGender(e.target.value)} name="genderChoice">
+          <option value="all">all</option>
+          <option value="female">female</option>
+          <option value="male">male</option>
+        </select>
       </div>
       <h2>{isLoading === false ? "Search Result:" : "Loading"}</h2>
       <ul>
-        {isError ? "Big Error" : !isLoading && <User characters={characters} />}
+        {isError
+          ? "Big Error"
+          : !isLoading && <User characters={characters} gender={gender} />}
       </ul>
     </div>
   );

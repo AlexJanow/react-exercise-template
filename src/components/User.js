@@ -1,23 +1,27 @@
 import "./User.css";
-function User({ characters }) {
+function User({ characters, gender }) {
   function renderCharacters() {
-    const liOfChar = characters.map((char, index) => {
-      return (
-        <li className="liItem" key={index}>
-          <div className={"card" + (char.gender === "female" ? " female" : "")}>
-            {char.name.title + " "}
-            {char.name.first + " "}
-            {char.name.last}
-            <div>
-              <img
-                alt={char.name.first + " " + char.name.last}
-                src={char.picture.medium}
-              />
+    const liOfChar = characters
+      .filter((item) => item.gender === gender || gender === "all")
+      .map((char, index) => {
+        return (
+          <li className="liItem" key={index}>
+            <div
+              className={"card" + (char.gender === "female" ? " female" : "")}
+            >
+              {char.name.title + " "}
+              {char.name.first + " "}
+              {char.name.last}
+              <div>
+                <img
+                  alt={char.name.first + " " + char.name.last}
+                  src={char.picture.medium}
+                />
+              </div>
             </div>
-          </div>
-        </li>
-      );
-    });
+          </li>
+        );
+      });
     return liOfChar;
   }
 
