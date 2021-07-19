@@ -56,7 +56,9 @@ function UserList() {
           <option value="male">male</option>
         </select>
       </div>
-      <h2>{isLoading === false ? "Search Result:" : "Loading"}</h2>
+      <h2>
+        {isLoading === false ? "Search Result:" : <div class="loader"></div>}
+      </h2>
       <ul>
         {isError
           ? "Big Error"
