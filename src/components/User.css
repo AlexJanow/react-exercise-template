@@ -1,0 +1,25 @@
+.liItem {
+  all: unset;
+  width: fit-content;
+  margin: auto;
+}
+
+.card {
+  border: 2px solid black;
+  border-radius: 10px;
+  width: 150px;
+  margin: auto;
+  background-color: lightblue;
+  padding: 1%;
+}
+
+.card img {
+  width: fit-content;
+  margin: auto;
+  border: 2px solid white;
+  border-bottom: 13px solid white;
+}
+
+.female {
+  background-color: lightpink;
+}
