@@ -8,10 +8,6 @@ function UserList() {
   const [amount, setAmount] = useState("10");
   const [gender, setGender] = useState("all");
 
-  // useEffect(() => {
-  //   setGender;
-  // });
-
   useEffect(() => {
     const temp = localStorage.getItem("characters");
     const loadedChars = JSON.parse(temp);
@@ -25,10 +21,6 @@ function UserList() {
     localStorage.setItem("characters", temp);
   }, [characters]);
 
-  // function maxResults() {
-  //   const amountOfPeople = maxResults.value;
-  //   return amountOfPeople;
-  // }
   useEffect(
     (amountOfPeople) => {
       setIsLoading(true);

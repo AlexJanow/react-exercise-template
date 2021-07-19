@@ -12,6 +12,7 @@ function User({ characters, gender }) {
               {char.name.title + " "}
               {char.name.first + " "}
               {char.name.last}
+
               <div>
                 <img
                   alt={char.name.first + " " + char.name.last}
