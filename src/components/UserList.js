@@ -21,25 +21,22 @@ function UserList() {
     localStorage.setItem("characters", temp);
   }, [characters]);
 
-  useEffect(
-    (amountOfPeople) => {
-      setIsLoading(true);
-      setIsError(false);
-      const url = `https://randomuser.me/api/?inc=email,gender,name,picture&results=${amount}`;
+  useEffect(() => {
+    setIsLoading(true);
+    setIsError(false);
+    const url = `https://randomuser.me/api/?inc=email,gender,name,picture&results=${amount}`;
 
-      fetch(url)
-        .then((res) => res.json())
-        .then((data) => {
-          setCharacters(data.results);
-          setIsLoading(false);
-        })
-        .catch((err) => {
-          setIsLoading(false);
-          setIsError(true);
-        });
-    },
-    [amount]
-  );
+    fetch(url)
+      .then((res) => res.json())
+      .then((data) => {
+        setCharacters(data.results);
+        setIsLoading(false);
+      })
+      .catch((err) => {
+        setIsLoading(false);
+        setIsError(true);
+      });
+  }, [amount]);
 
   return (
     <div>
