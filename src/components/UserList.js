@@ -40,8 +40,9 @@ function UserList() {
 
   return (
     <div>
+      <h1>thats so random</h1>
       <div>
-        <label for="maxResults">Max. results:</label>
+        <label htmlFor="maxResults">Max. results:</label>
         <input
           onChange={(e) => setAmount(e.target.value)}
           value={amount}
@@ -49,7 +50,7 @@ function UserList() {
         />
       </div>{" "}
       <div>
-        <label for="genderChoice">Gender:</label>
+        <label htmlFor="genderChoice">Gender:</label>
         <select onChange={(e) => setGender(e.target.value)} name="genderChoice">
           <option value="all">all</option>
           <option value="female">female</option>
@@ -57,7 +58,11 @@ function UserList() {
         </select>
       </div>
       <h2>
-        {isLoading === false ? "Search Result:" : <div class="loader"></div>}
+        {isLoading === false ? (
+          "Search Result:"
+        ) : (
+          <div className="loader"></div>
+        )}
       </h2>
       <ul>
         {isError
